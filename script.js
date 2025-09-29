@@ -19,7 +19,9 @@ inside the <p> element with id="t1-msg".
 💡 Hint:
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
-document.getElementById("t1-msg").innerHTML = "Hello, World!";
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("t1-msg").innerHTML = "Hello, World!"
+});
 
 /*  
 =======================================
@@ -40,10 +42,7 @@ button.addEventListener("click", function () {
     // change text here
 });
 */
-const button = document.getElementById("t2-btn");
-button.addEventListener("click", function () {
-    document.getElementById("t2-status").innerHTML = "You clicked the button!"
-});
+
 
 /*  
 =======================================
@@ -71,24 +70,7 @@ Use:
 data.content   // the quote text
 data.author    // the author
 */
-const button2 = document.getElementById("t3-loadQuote");
-button2.addEventListener("click", function () {
-    fetch("https://dummyjson.com/quotes/random")
-  .then(function (response) {
-    if (!response.ok) {                 // not 2xx → treat as an error
-      throw new Error("HTTP " + response.status);
-    }
-    return response.json(); // turn response body into JS object
-  })
-  .then(function (data) {
-    document.getElementById("t3-quote").innerHTML = data.quote
-    document.getElementById("t3-author").innerHTML = data.author
-  })
-  .catch(function (err) {
-    console.error("Error:", err);
-  });
- 
-});
+
 
 /*  
 =======================================
