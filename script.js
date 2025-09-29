@@ -19,7 +19,7 @@ inside the <p> element with id="t1-msg".
 💡 Hint:
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
- 
+document.getElementById("t1-msg").innerHTML = "Hello, World!";
 
 /*  
 =======================================
@@ -40,7 +40,7 @@ button.addEventListener("click", function () {
     // change text here
 });
 */
- 
+
 
 /*  
 =======================================
