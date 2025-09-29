@@ -116,3 +116,25 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+const button3 = document.getElementById("t4-loadWx");
+button3.addEventListener("click", function () {
+    const apiKey = "9c29da573838fd8cdd561179419142d7"; // replace with your own
+    const city = "Dammam";
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    
+    fetch(url)
+  .then(function (response) {
+    if (!response.ok) {                 // not 2xx → treat as an error
+      throw new Error("HTTP " + response.status);
+    }
+    return response.json();             // turn response body into JS object
+  })
+  .then(function (data) {
+    document.getElementById("t4-temp").innerHTML = data.main.temp 
+    document.getElementById("t4-hum").innerHTML = data.main.humidity 
+    document.getElementById("t4-wind").innerHTML =data.wind.speed 
+  })
+  .catch(function (err) {
+    console.error("Error:", err);
+  });
+});
